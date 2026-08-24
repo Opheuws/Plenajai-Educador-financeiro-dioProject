@@ -1,11 +1,13 @@
-import { createBrowserRouter } from 'react-router-dom'
+// 🛠️ Mude de createBrowserRouter para createHashRouter aqui:
+import { createHashRouter } from 'react-router-dom'
 
 import { RootLayout } from './components/layout/RootLayout'
 import { SimulationFormPage } from './pages/SimulationFormPage'
 import { SimulationResultsPage } from './pages/SimulationResultsPage'
 import { SimulationHistoryPage } from './pages/SimulationHistoryPage'
 
-export const router = createBrowserRouter([
+// 🛠️ Altere o nome da função aqui também:
+export const router = createHashRouter([
   {
     element: <RootLayout />,
     children: [
