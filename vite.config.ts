@@ -12,7 +12,7 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
-  base: '/Plenajai-Educador-financeiro-dioProject/',
+  base: '/Plenajai-Educador-financeiro-dioProjeto/', // 🛠️ Ajustado de 'Project' para 'Projeto'
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

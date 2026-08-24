@@ -26,6 +26,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/Plenajai-Educador-financeiro-dioProjeto', // 🛠️ Linha mágica adicionada aqui!
+    basename: '/Plenajai-Educador-financeiro-dioProjeto', // 🛠️ Ajustado de 'Project' para 'Projeto'
   },
 )
