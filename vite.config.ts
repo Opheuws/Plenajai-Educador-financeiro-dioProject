@@ -12,8 +12,7 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
-  // 🛠️ Certifique-se de que o nome está completo e exatamente igual ao do GitHub:
-  base: '/Plenajai-Educador-financeiro-dioProjeto/',
+  base: './', // 🛠️ Mudança estratégica: Caminho relativo resolve os erros 404 de vez!
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
