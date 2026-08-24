@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # ⚠️ Certifique-se de que sua branch principal se chama main (ou mude para master)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 20
+          cache: 'npm' # mude para 'yarn' ou 'pnpm' se usar um deles
+
+      - name: Install dependencies
+        run: npm install # mude para yarn install ou pnpm install se necessário
+
+      - name: Build project
+        run: npm run build # executa o compilador TypeScript e o Vite build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # pasta padrão gerada pelo Vite
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

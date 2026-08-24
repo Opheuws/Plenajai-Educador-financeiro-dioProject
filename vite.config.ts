@@ -12,6 +12,7 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] }),
     tailwindcss(),
   ],
+  base: '/Plenajai-Educador-financeiro-dioProject/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
