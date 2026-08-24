@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - principal # ⚠️ Ajustado para sua branch principal
+      - principal # ⚠️ Nome correto da sua branch principal
 
 permissions:
   contents: read
@@ -27,7 +27,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # 🛠️ Correção aplicada aqui!
+          node-version: 24 # 🛠️ Versão atualizada para evitar avisos de depreciação
           cache: 'npm'
 
       - name: Install dependencies
