@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # ⚠️ Certifique-se de que sua branch principal se chama main (ou mude para master)
+      - principal # ⚠️ Ajustado para sua branch principal
 
 permissions:
   contents: read
@@ -27,14 +27,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-node-version: 20
-          cache: 'npm' # mude para 'yarn' ou 'pnpm' se usar um deles
+          node-version: 20 # 🛠️ Correção aplicada aqui!
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install # mude para yarn install ou pnpm install se necessário
+        run: npm install
 
       - name: Build project
-        run: npm run build # executa o compilador TypeScript e o Vite build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # pasta padrão gerada pelo Vite
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
