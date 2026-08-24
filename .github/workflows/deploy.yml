@@ -34,6 +34,9 @@ jobs:
         run: npm install
 
       - name: Build project
+        # Injeta a variável salva no cofre do GitHub para o build do Vite ler:
+        env:
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
         run: npm run build
 
       - name: Setup Pages
